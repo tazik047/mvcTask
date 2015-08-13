@@ -151,7 +151,31 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="App_Data\local_db.sdf" />
+    <Content Include="Content\css\bootstrap-theme.css" />
+    <Content Include="Content\css\bootstrap-theme.min.css" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\templatemo_style.css" />
+    <Content Include="Content\font\glyphicons-halflings-regular.svg" />
     <Content Include="Content\guest.css" />
+    <Content Include="Content\images\ads_125.jpg" />
+    <Content Include="Content\images\templatemo_about.jpg" />
+    <Content Include="Content\images\templatemo_body.jpg" />
+    <Content Include="Content\images\templatemo_body_top.jpg" />
+    <Content Include="Content\images\templatemo_image_01.jpg" />
+    <Content Include="Content\images\templatemo_image_02.jpg" />
+    <Content Include="Content\images\templatemo_image_03.jpg" />
+    <Content Include="Content\images\templatemo_list.jpg" />
+    <Content Include="Content\images\templatemo_menu_left.jpg" />
+    <Content Include="Content\images\templatemo_menu_right.jpg" />
+    <Content Include="Content\images\templatemo_rss.jpg" />
+    <Content Include="Content\images\templatemo_sidebar_title.jpg" />
+    <Content Include="Content\images\templatemo_subscribe.jpg" />
+    <Content Include="Content\images\templatemo_twitter.jpg" />
+    <Content Include="Content\js\bootstrap.js" />
+    <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\jquery-2.1.4.js" />
+    <Content Include="Content\js\npm.js" />
     <Content Include="Content\main.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
@@ -219,6 +243,16 @@
       <DependentUpon>Entity.edmx</DependentUpon>
       <LastGenOutput>Entity.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\font\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\font\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\font\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\font\glyphicons-halflings-regular.woff2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\css\bootstrap-theme.css.map" />
+    <Content Include="Content\css\bootstrap.css.map" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
