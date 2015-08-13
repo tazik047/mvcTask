@@ -1,36 +1,81 @@
-﻿@{
-    ViewBag.Title = "Анкета";
+﻿@model MvcTask.Models.Entity.Form
+
+@{
+    ViewBag.Title = "Регистрация";
 }
-@using MvcTask.Helper;
 
 @section styles{
     <link href="~/Content/guest.css" rel="stylesheet" />
 }
 
 @section body{
-    <h2>Заполните анкету:</h2>
-    @using (Html.BeginForm("Save", "Form"))
+
+    <h2>Анкета</h2>
+
+    @using (Html.BeginForm())
     {
-        @Html.TextBox("name", "", new { placeholder = "Имя" })
-        <div class="title">Ваш пол:</div>
-        
-        @Html.RadioButton("sex", "мужчина", true, new { id = "sex_m" })
-        @Html.Label("sex_m", "Мужчина")
-        <br />
-        @Html.RadioButton("sex", "женщина", new { id = "sex_w" })
-        @Html.Label("sex_w", "Женщина")
-        <div class="title">Ваш возраст:</div>
-        @Html.DropList(Enumerable.Range(18, 60), name: "age")
-        
-        <div class="title">Другое:</div>
-        @Html.CheckBox("married", new { id="married"})
-        @Html.Label("married", "Замужем/Женат")
-        <br />
-        @Html.CheckBox("animals", new { id="animals"})
-        @Html.Label("animals", "Есть домашние животные")
-        <br />
-        @Html.CheckBox("childs", new { id="childs"})
-        @Html.Label("childs", "Есть дети")
-        <input type="submit" value="Отправить"/>
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend>Form</legend>
+
+            @Html.HiddenFor(model => model.FormId)
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Name)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Sex)
+            </div>
+            <div class="editor-field">
+                @Html.RadioButton("Sex", "мужчина", true, new { id = "sex_m" })
+                @Html.Label("sex_m", "Мужчина")
+                <br />
+                @Html.RadioButton("Sex", "женщина", new { id = "sex_w" })
+                @Html.Label("sex_w", "Женщина")
+                @Html.ValidationMessageFor(model => model.Sex)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Age)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Age)
+                @Html.ValidationMessageFor(model => model.Age)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Married)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Married)
+                @Html.ValidationMessageFor(model => model.Married)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Animals)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Animals)
+                @Html.ValidationMessageFor(model => model.Animals)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Childs)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Childs)
+                @Html.ValidationMessageFor(model => model.Childs)
+            </div>               
+
+            <p>
+                <input type="submit" value="Сохранить" />
+            </p>
+        </fieldset>
     }
 }

@@ -1,29 +1,45 @@
-﻿@{
-    ViewBag.Title = "Спасибо, за заполнение анкеты";
-}
-@using MvcTask.Helper;
-@section styles{
-    
+﻿@model MvcTask.Models.Entity.Form
+
+@{
+    ViewBag.Title = "Регистрация";
 }
 
+@using MvcTask.Helper;
+
 @section body{
-    <h2>Ваши данные:</h2>
-    <table>
-        <tr>
-            <td>Имя</td>
-            <td>@ViewBag.Name</td>
-        </tr>
-        <tr>
-            <td>Пол</td>
-            <td>@ViewBag.Sex</td>
-        </tr>
-        <tr>
-            <td>Возраст</td>
-            <td>@ViewBag.Age</td>
-        </tr>
-        <tr>
-            <td>Дополнительная информация</td>
-            <td>@Html.UlList((IEnumerable<string>)ViewBag.Addition)</td>
-        </tr>
-    </table>
+    <h2>Спасибо за регистрацию</h2>
+
+    <fieldset>
+        <legend>Form</legend>
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.Name)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Name)
+        </div>
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.Sex)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Sex)
+        </div>
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.Age)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Age)
+        </div>
+
+        <div class="display-label">
+            Другое
+        </div>
+        <div class="display-field">
+            @Html.UlList(Model.AdditionInformation)
+        </div>
+
+    </fieldset>
+
 }

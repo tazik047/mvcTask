@@ -7,29 +7,20 @@
 
 @section right{
     <div class="reviews">
-        @foreach(var i in @ViewBag.Reviews){
-            <div class="article">
-                <div class="title">
-                    @i.Name
-                </div>
-                <div class="date">
-                    @i.Date
-                </div>
-                <div class="text">
-                    @i.Text
-                </div>
-            </div>
+        @foreach (var i in @ViewBag.Reviews)
+        {
+            @Html.Partial("Review", (MvcTask.Models.Entity.Review)i);
         }
     </div>
 }
 
 @section body{
     <h2>Оставить отзыв</h2>
-    @using (Html.BeginForm("Registration","Guest"))
+    @using (Html.BeginForm("Registration", "Guest"))
     {
         @Html.TextBox("name", "", new { placeholder = "Имя" })
         @Html.Hidden("date", DateTime.Now)
-        @Html.TextArea("review", "", new { placeholder = "Отзыв" })
-        <input type="submit" value="Отправить"/>
+        @Html.TextArea("text", "", new { placeholder = "Отзыв" })
+        <input type="submit" value="Отправить" />
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MvcTask.Models;
+using MvcTask.Models.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +10,8 @@ namespace MvcTask.Controllers
 {
     public class FormController : Controller
     {
+        private Repositoriy repo = new Repositoriy();
+
         //
         // GET: /Form/
 
@@ -16,20 +20,23 @@ namespace MvcTask.Controllers
             return View();
         }
 
-        public ActionResult Save(FormCollection form)
+        public ActionResult Save(Form form)
         {
-            ViewBag.Name = form["name"];
-            ViewBag.Age = form["age"];
-            ViewBag.Sex = form["sex"];
-            var additionInf = new List<string>();
-            if (form["married"].Contains("true"))
-                additionInf.Add("Замужем/Женат");
-            if (form["animals"].Contains("true"))
-                additionInf.Add("Есть домашние животные");
-            if (form["childs"].Contains("true"))
-                additionInf.Add("Есть дети");
-            ViewBag.Addition = additionInf;
-            return View();
+            return View(form);
+        }
+
+        [HttpPost]
+        public ActionResult Index(Form form)
+        {
+            try
+            {
+                repo.Add(form);
+                return RedirectToAction("Save", form);
+            }
+            catch
+            {
+                return View(form);
+            }
         }
     }
 
