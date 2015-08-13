@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Главная";
+}
+@using MvcTask.Models;
+
+@section body{
+    <h2>Статьи:</h2>
+    <div class="articles">
+        @foreach (Article i in Model)
+        {
+            @Html.Partial("Article", i)
+        }
+    </div>
+}

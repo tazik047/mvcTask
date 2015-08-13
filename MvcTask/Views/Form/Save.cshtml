@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Спасибо, за заполнение анкеты";
+}
+@using MvcTask.Helper;
+@section styles{
+    
+}
+
+@section body{
+    <h2>Ваши данные:</h2>
+    <table>
+        <tr>
+            <td>Имя</td>
+            <td>@ViewBag.Name</td>
+        </tr>
+        <tr>
+            <td>Пол</td>
+            <td>@ViewBag.Sex</td>
+        </tr>
+        <tr>
+            <td>Возраст</td>
+            <td>@ViewBag.Age</td>
+        </tr>
+        <tr>
+            <td>Дополнительная информация</td>
+            <td>@Html.UlList((IEnumerable<string>)ViewBag.Addition)</td>
+        </tr>
+    </table>
+}

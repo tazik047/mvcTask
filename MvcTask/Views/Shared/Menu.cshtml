@@ -1,0 +1,7 @@
+﻿@using MvcTask.Helper;
+<h3>Меню:</h3>
+@Html.UlList(new List<MvcHtmlString> { 
+    Html.ActionLink("Главная","Index","Home"),
+    Html.ActionLink("Гостевая","Index","Guest"),
+    Html.ActionLink("Анкета","Index","Form")},
+    "menu")

@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/main.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+    @RenderSection("styles", false)
+    @RenderSection("scripts", false)
+</head>
+<body>
+    <header id="top">
+        <div id="logo"></div>
+        <div id="title">
+            <h1>@ViewBag.Title</h1>
+        </div>
+        @RenderSection("head", false)
+    </header>
+    <div id="content">
+        <div id="right">
+            @Html.Partial("Menu")
+            @RenderSection("right", false)
+        </div>
+        <div id="main">
+            @RenderSection("body")
+        </div>
+
+    </div>
+    <footer>
+        <div id="copyright">&copy; 2015 Power by Stas</div>
+        <a href="#top" id="up"></a>
+    </footer>
+</body>
+</html>

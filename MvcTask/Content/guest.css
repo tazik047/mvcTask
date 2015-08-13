@@ -1,0 +1,38 @@
+﻿form {
+    margin: auto;
+    width: 430px;
+}
+
+input, textarea, select {
+    padding: 15px;
+    display: block;
+    margin: auto;
+    margin-bottom: 20px;
+    width: 400px;
+}
+
+textarea {
+    resize: vertical;
+    height: 300px;
+}
+
+input[type="submit"] {
+    margin-top:10px;
+    background-color: black;
+    color: white;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    display: inline-block;
+    margin: 0px;
+    padding: 0px;
+    width: auto;
+}
+
+.title {
+    text-align: left;
+    font-size: 16px;
+    margin-top: 15px;
+    font-weight: bold;
+}
