@@ -1,26 +1,35 @@
-﻿@{
+﻿@using MvcTask.Models.Entity;
+@using MvcTask.Helper;
+@model Review
+@{
     ViewBag.Title = "Отзывы";
 }
-@section styles{
-    <link href="~/Content/guest.css" rel="stylesheet" />
+
+@section styles
+{
+    <link href="~/Content/css/guest.css" rel="stylesheet" />
 }
 
 @section right{
-    <div class="reviews">
-        @foreach (var i in @ViewBag.Reviews)
-        {
-            @Html.Partial("Review", (MvcTask.Models.Entity.Review)i);
-        }
-    </div>
+    @using (Html.BeginRightBlock("Отзывы"))
+    {
+        <div class="reviews">
+            @foreach (Review i in @ViewBag.Reviews)
+            {
+                @Html.Partial("Review", i)
+                ;
+            }
+        </div>
+    }
 }
 
 @section body{
     <h2>Оставить отзыв</h2>
     @using (Html.BeginForm("Registration", "Guest"))
     {
-        @Html.TextBox("name", "", new { placeholder = "Имя" })
+        @Html.TextBoxFor(m => m.Name, new { placeholder = "Имя" })
         @Html.Hidden("date", DateTime.Now)
-        @Html.TextArea("text", "", new { placeholder = "Отзыв" })
+        @Html.TextAreaFor(m => m.Text, new { placeholder = "Отзыв" })
         <input type="submit" value="Отправить" />
     }
 }

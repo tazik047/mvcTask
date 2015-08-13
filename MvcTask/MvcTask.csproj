@@ -118,6 +118,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helper\InputHelper.cs" />
+    <Compile Include="Helper\MvcBlock.cs" />
+    <Compile Include="Helper\RenderHelper.cs" />
     <Compile Include="Models\Entity\Article.cs">
       <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
@@ -157,8 +159,9 @@
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\templatemo_style.css" />
     <Content Include="Content\font\glyphicons-halflings-regular.svg" />
-    <Content Include="Content\guest.css" />
+    <Content Include="Content\css\guest.css" />
     <Content Include="Content\images\ads_125.jpg" />
+    <Content Include="Content\images\press_top.png" />
     <Content Include="Content\images\templatemo_about.jpg" />
     <Content Include="Content\images\templatemo_body.jpg" />
     <Content Include="Content\images\templatemo_body_top.jpg" />
@@ -172,6 +175,7 @@
     <Content Include="Content\images\templatemo_sidebar_title.jpg" />
     <Content Include="Content\images\templatemo_subscribe.jpg" />
     <Content Include="Content\images\templatemo_twitter.jpg" />
+    <Content Include="Content\images\user-01.png" />
     <Content Include="Content\js\bootstrap.js" />
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Content\js\jquery-2.1.4.js" />

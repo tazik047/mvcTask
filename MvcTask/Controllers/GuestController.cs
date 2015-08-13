@@ -18,15 +18,6 @@ namespace MvcTask.Controllers
         public ActionResult Index()
         {
             var list = repo.LastReviews(5);
-            /*for (int i = 0; i < 5; i++)
-            {
-                list.Add(new Review()
-                {
-                    Name = "Имя " + i,
-                    Date = DateTime.Now,
-                    Text = "Отличный сайт. Нашел здесь именно то, что искал."
-                });
-            }*/
             ViewBag.Reviews = list;
             return View();
         }

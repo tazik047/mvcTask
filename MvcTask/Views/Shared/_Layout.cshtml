@@ -18,10 +18,9 @@
     <div id="content">
         <div id="right">
             Html.Partial("Menu")
-            @RenderSection("right", false)
         </div>
         <div id="main">
-            @RenderSection("body")
+            RenderSection("body")
         </div>
 
     </div>
@@ -63,7 +62,7 @@
                 <!--
                     <div id="search_box">
                         <form action="#" method="get">
-                            <input type="text" value="Поиск..." name="q" size="10" id="searchfield" title="searchfield" onfocus="clearText(this)" onblur="clearText(this)"/>
+                            <input type="text" placeholder="Поиск..." name="q" size="10" id="searchfield" title="searchfield"/>
                             <input type="submit" name="Search" value="Искать" id="searchbutton" title="Search"/>
                         </form>
                     </div>
@@ -88,40 +87,16 @@
 
                 <div id="templatemo_content">
 
-                    <div class="post_box">
-
-                        <h2><a href="#">Free Blog Design Templates</a></h2>
-                        <div class="news_meta">Posted on <a href="#">Web Templates</a>, 14th January 2048 | Tags: <a href="#">Blog</a>, <a href="#">Templates</a>, <a href="#">Design</a>, <a href="#">Free</a></div>
-                        <div class="image_wrapper"><a href="http://www.templatemo.com/page/1" target="_parent"><img src="~/Content/images/templatemo_image_01.jpg" alt="image 1" /></a></div>
-                        <p align="justify">Design Blog is a <a href="http://www.templatemo.com" target="_parent">free CSS layout</a> by <a href="http://www.templatemo.com" target="_parent">templatemo.com</a> website. Feel free to adapt or edit or cutomize this template for any kind of content management system. Validate <a href="http://validator.w3.org/check?uri=referer" rel="nofollow">XHTML</a> &amp; <a href="http://jigsaw.w3.org/css-validator/check/referer" rel="nofollow">CSS</a>. Praesent at libero diam. Vivamus venenatis eros lorem, in euismod tortor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur dictum risus ac eros lacinia sit amet egestas turpis luctus.  <a href="#" class="continue">Continue ...</a></p>
-                        <div class="cleaner"></div>
-                    </div>
-
-                    <div class="post_box">
-
-                        <h2><a href="#">Web Design Trends</a></h2>
-                        <div class="news_meta">Posted on <a href="#">Web Design</a>, 28th July 2048 | Tags: <a href="#">CSS</a>, <a href="#">XHTML</a>, <a href="#">Standards</a></div>
-                        <div class="image_wrapper"><a href="http://www.templatemo.com/page/2" target="_parent"><img src="~/Content/images/templatemo_image_02.jpg" alt="image 2" /></a></div>
-                        <p align="justify">Donec magna risus, mollis eget ullamcorper a, fringilla ut ligula. Fusce eu lectus non tortor dictum semper et eget eros. Integer enim eros, bibendum sed rhoncus et, congue vel odio. Sed quis augue turpis, quis vehicula nibh. Quisque hendrerit accumsan tellus, non lobortis lacus tincidunt vel. Pellentesque odio urna, convallis non ultrices quis, cursus id lectus. <a href="#" class="continue">Continue ...</a></p>
-                        <div class="cleaner"></div>
-                    </div>
-
-                    <div class="post_box pb_last">
-
-                        <h2><a href="#">Best Collection of Freebies</a></h2>
-                        <div class="news_meta">Posted on <a href="#">Collection</a>, 26th June 2048 | Tags: <a href="#">Photos</a>, <a href="#">Photography</a>, <a href="#">Free Stuff</a></div>
-                        <div class="image_wrapper"><a href="http://www.templatemo.com/page/3" target="_parent"><img src="~/Content/images/templatemo_image_03.jpg" alt="image 3" /></a></div>
-                        <p align="justify">Quisque in diam a justo condimentum molestie. Vivamus a velit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur quis velit quis tortor tincidunt aliquet. Vivamus leo velit, convallis id, ultrices sit amet, tempor a, libero. Donec diam metus, semper eu elementum at, volutpat vel risus. Curabitur condimentum porttitor libero nec hendrerit. Nullam venenatis laoreet nibh eget iaculis. Ut vel nulla vitae magna aliquam luctus. <a href="#" class="continue">Continue ...</a></p>
-                        <div class="cleaner"></div>
-                    </div>
+                    @RenderSection("body", true)
 
                 </div>
 
                 <div id="templatemo_sidebar">
-
+                    @RenderSection("right", false)
+                    <!--
                     <div id="aboutus">
                         <h3>About Design Blog</h3>
-                        <div class="image_fl"><img src="~/Content/images/templatemo_about.jpg" alt="about this blog" /></div>
+                        <div class="image_fl"><img src="~/Content/images/templatemo_about.jpg" alt="about this blog"/></div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras volutpat aliquet risus, a ornare orci scelerisque et. <a href="#" class="continue">more...</a></p>
                     </div>
 
@@ -131,11 +106,11 @@
 
                         <h3>Our Sponsors</h3>
 
-                        <div class="ads_125"><a href="http://www.templatemo.com/page/1" target="_parent"><img src="~/Content/images/ads_125.jpg" alt="ad 1" /></a></div>
-                        <div class="ads_125 odd"><a href="http://www.templatemo.com/page/2" target="_parent"><img src="~/Content/images/ads_125.jpg" alt="ad 2" /></a></div>
+                        <div class="ads_125"><a href="http://www.templatemo.com/page/1" target="_parent"><img src="~/Content/images/ads_125.jpg" alt="ad 1"/></a></div>
+                        <div class="ads_125 odd"><a href="http://www.templatemo.com/page/2" target="_parent"><img src="~/Content/images/ads_125.jpg" alt="ad 2"/></a></div>
 
-                        <div class="ads_125"><a href="http://www.templatemo.com/page/3" target="_parent"><img src="~/Content/images/ads_125.jpg" alt="ad 3" /></a></div>
-                        <div class="ads_125 odd"><a href="http://www.templatemo.com/page/4" target="_parent"><img src="~/Content/images/ads_125.jpg" alt="ad 4" /></a></div>
+                        <div class="ads_125"><a href="http://www.templatemo.com/page/3" target="_parent"><img src="~/Content/images/ads_125.jpg" alt="ad 3"/></a></div>
+                        <div class="ads_125 odd"><a href="http://www.templatemo.com/page/4" target="_parent"><img src="~/Content/images/ads_125.jpg" alt="ad 4"/></a></div>
 
                         <div class="cleaner"></div>
 
@@ -174,13 +149,14 @@
                         <h3>Newsletter</h3>
 
                         <form method="get" action="#">
-                            <input type="text" id="user" name="user" class="newsletter_email" value="Enter your email address" onfocus="clearText(this)" onblur="clearText(this)" />
-                            <input style="font-weight: bold;" type="submit" name="submit" id="submit" value="Subscribe" />
+                            <input type="text" id="user" name="user" class="newsletter_email" placeholder="Enter your email address"/>
+                            <input style="font-weight: bold;" type="submit" name="submit" id="submit" value="Subscribe"/>
                         </form>
 
                         <div class="cleaner_h20"></div>
-                        <a href="#" class="icon_link"><img src="~/Content/images/templatemo_rss.jpg" alt="rss" /></a><a href="#" class="icon_link"><img src="~/Content/images/templatemo_twitter.jpg" alt="twitter" /></a>
+                        <a href="#" class="icon_link"><img src="~/Content/images/templatemo_rss.jpg" alt="rss"/></a><a href="#" class="icon_link"><img src="~/Content/images/templatemo_twitter.jpg" alt="twitter"/></a>
                     </div>
+                    -->
 
                 </div>
 
@@ -191,7 +167,7 @@
         <div class="cleaner"></div>
     </div>
 
-
+    <!--
     <div id="templatemo_footer_wrapper">
         <div id="templatemo_footer">
 
@@ -236,10 +212,12 @@
             <div class="cleaner"></div>
         </div>
     </div>
+    -->
 
     <div id="templatemo_copyright">
         Copyright © 2015 Stas
     </div>
+    <a href="#top" id="bt_up"></a>
     <script>
         $(document).ready(function () {
             var url = '/@ViewContext.RouteData.Values["controller"]/@ViewContext.RouteData.Values["action"]';

@@ -1,7 +1,10 @@
 ﻿@model MvcTask.Models.Entity.Article
 
-<div class="article">
-    <div class="title">@Model.Title</div>
-    <div class="date">@Model.Date</div>
-    <div class="text">@Model.Text</div>
+<div class="post_box">
+
+    <h2><a href="#">@Model.Title</a></h2>
+    <div class="news_meta">Создано @Model.Date.ToLongDateString() @Model.Date.ToShortTimeString() </div>
+    <!--<div class="image_wrapper"><a href="" target="_parent"><img alt="image 1" /></a></div>-->
+    <p align="justify">@Model.Text</p>
+    <div class="cleaner"></div>
 </div>

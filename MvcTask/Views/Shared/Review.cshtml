@@ -1,13 +1,23 @@
 ﻿@model MvcTask.Models.Entity.Review
 
-<div class="article">
-    <div class="title">
-        @Model.Name
+<div class="review">
+
+    <div class="avatar">
+        <img width="50" height="50" class="avatar" src="~/Content/images/user-01.png" alt="">
     </div>
-    <div class="date">
-        @Model.Date
+
+    <div class="comment-info">
+        <cite>@Model.Name</cite>
+
+        <div class="comment-meta">
+            <time class="comment-time">@Model.Date.ToLongDateString() @Model.Date.ToShortTimeString() </time>
+        </div>
     </div>
-    <div class="text">
-        @Model.Text
+
+    <div class="comment-text">
+        <p>
+            @Model.Text
+        </p>
     </div>
+
 </div>
