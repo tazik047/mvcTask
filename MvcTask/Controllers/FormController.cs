@@ -1,16 +1,17 @@
-﻿using MvcTask.Models;
-using MvcTask.Models.Entity;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using DAO.Model;
+using DAO.Repository;
+using EntityFrameworkDAO.Repository;
 
 namespace MvcTask.Controllers
 {
     public class FormController : Controller
     {
-        private Repositoriy repo = new Repositoriy();
+        private IFormRepository repo = new EntityFrameworkFormRepository();
 
         //
         // GET: /Form/

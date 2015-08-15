@@ -1,23 +1,24 @@
-﻿using MvcTask.Models;
-using MvcTask.Models.Entity;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using DAO.Model;
+using DAO.Repository;
+using EntityFrameworkDAO.Repository;
 
 namespace MvcTask.Controllers
 {
     public class GuestController : Controller
     {
-        private Repositoriy repo = new Repositoriy();
+        private IReviewRepository repo = new EntityFrameworkReviewRepository();
 
         //
         // GET: /Guest/
 
         public ActionResult Index()
         {
-            var list = repo.LastReviews(5);
+            var list = repo.GetFirtNItem(5);
             ViewBag.Reviews = list;
             return View();
         }

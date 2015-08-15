@@ -1,10 +1,11 @@
-﻿@model MvcTask.Models.Entity.Form
+﻿@model DAO.Model.Form
 
 @{
     ViewBag.Title = "Регистрация";
 }
 
 @using MvcTask.Helper;
+@using MvcTask.Models.Entity
 
 @section body{
     <h2>Спасибо за регистрацию</h2>
@@ -37,7 +38,7 @@
             Другое
         </div>
         <div class="display-field">
-            @Html.UlList(Model.AdditionInformation)
+            @Html.UlList(Model.AdditionInformation())
         </div>
 
     </fieldset>
