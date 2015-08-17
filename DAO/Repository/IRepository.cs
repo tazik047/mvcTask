@@ -11,7 +11,7 @@ namespace DAO.Repository
         
         List<T> GetAll();
         List<T> GetFirtNItem(int n);
-        T FindById(int id);
+        T FindById(long id);
 
         List<T> Find(Func<T, bool> predicate);
     }

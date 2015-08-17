@@ -1,6 +1,10 @@
-﻿@model IEnumerable<DAO.Model.Article>
+﻿@model IEnumerable<MvcTask.Models.PreviewArticle>
 @{
     ViewBag.Title = "Главная";    
+}
+
+@section right{
+    @Html.Action("Index","Voite")
 }
 
 @section body{
@@ -8,7 +12,7 @@
     <div class="articles">
         @foreach (var i in Model)
         {
-            @Html.Partial("Article", i)
+            @Html.Partial("PreviewArticle", i)
         }
     </div>
 }

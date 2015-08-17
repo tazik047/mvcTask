@@ -39,7 +39,7 @@ namespace EntityFrameworkDAO.Repository
             return GetAll().Take(n).ToList();
         }
 
-        public Article FindById(int id)
+        public Article FindById(long id)
         {
             return _db.Articles.Find(id);
         }

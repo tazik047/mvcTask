@@ -111,13 +111,16 @@
     <Compile Include="Controllers\FormController.cs" />
     <Compile Include="Controllers\GuestController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\VoiteController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helper\InputHelper.cs" />
     <Compile Include="Helper\MvcBlock.cs" />
     <Compile Include="Helper\RenderHelper.cs" />
+    <Compile Include="Models\Article.cs" />
     <Compile Include="Models\FormMethods.cs" />
+    <Compile Include="Models\PreviewArticle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -181,7 +184,7 @@
     <Content Include="Views\Shared\Menu.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\Article.cshtml" />
+    <Content Include="Views\Shared\PreviewArticle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Guest\Registration.cshtml" />
@@ -220,6 +223,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Article.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Voite\Summary.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Voite\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

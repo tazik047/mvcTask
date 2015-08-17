@@ -38,7 +38,7 @@ namespace EntityFrameworkDAO.Repository
             return GetAll().Take(n).ToList();
         }
 
-        public Form FindById(int id)
+        public Form FindById(long id)
         {
             return _db.Forms.Find(id);
         }

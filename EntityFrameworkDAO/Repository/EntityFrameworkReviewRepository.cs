@@ -39,7 +39,7 @@ namespace EntityFrameworkDAO.Repository
             return GetAll().Take(n).ToList();
         }
 
-        public Review FindById(int id)
+        public Review FindById(long id)
         {
             return _db.Reviews.Find(id);
         }

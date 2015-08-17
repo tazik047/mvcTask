@@ -1,0 +1,19 @@
+﻿@model DAO.Model.Voite
+@using MvcTask.Helper;
+
+@using (Html.BeginRightBlock("Голосование"))
+{
+    <div>Оцените наш сайт</div>
+    using (Html.BeginForm("Voite", "Voite"))
+    {
+    @Html.Hidden("Ip", Context.Request.UserHostAddress)
+        for (int i = 0; i <= 5; i++)
+        {
+    <div>
+        @Html.RadioButton("Mark", i, new { id = "mark" + i })
+        @Html.Label("mark" + i, "Оценка " + i)
+    </div>
+        }
+        <input type="submit" value="Оценить" />
+    }
+}

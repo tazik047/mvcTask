@@ -18,8 +18,13 @@ namespace MvcTask.Controllers
 
         public ActionResult Index()
         {
-            var list = repo.GetAll();         
-            return View(list);
+            var list = repo.GetAll();
+            return View(list.Select(a=>new PreviewArticle(a)));
+        }
+
+        public ActionResult Article(long id)
+        {
+            return View(new Article(repo.FindById(id)));
         }
 
     }

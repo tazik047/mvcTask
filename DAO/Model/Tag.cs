@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace DAO.Model
 {
-    public class Article
+    public class Tag
     {
-        public long ArticleId { get; set; }
-        public DateTime Date { get; set; }
+        public long TagId { get; set; }
         public string Title { get; set; }
-        public string Text { get; set; }
         public virtual ICollection<Taxonomy> Taxonomies { get; set; }
     }
 }
