@@ -42,7 +42,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Tag.cs" />
-    <Compile Include="Model\Taxonomy.cs" />
     <Compile Include="Model\Voite.cs" />
     <Compile Include="Repository\IArticleRepositry.cs" />
     <Compile Include="Repository\IFormRepository.cs" />

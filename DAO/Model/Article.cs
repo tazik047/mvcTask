@@ -12,6 +12,6 @@ namespace DAO.Model
         public DateTime Date { get; set; }
         public string Title { get; set; }
         public string Text { get; set; }
-        public virtual ICollection<Taxonomy> Taxonomies { get; set; }
+        public virtual ICollection<Tag> Tags { get; set; }
     }
 }

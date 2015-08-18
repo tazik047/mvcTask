@@ -12,9 +12,10 @@ namespace EntityFrameworkDAO.Repository
     {
         private readonly BlogDbContext _db = new BlogDbContext();
 
-        public long Summary()
+        public double Summary()
         {
-            return GetAll().Select<Voite, int>(v => v.Mark).Aggregate(0L, (s, i) => s += i);
+            var marks = GetAll().Select(v => v.Mark);
+            return marks.Any() ? marks.Average() : 0;
         }
 
         public void Add(Voite item)

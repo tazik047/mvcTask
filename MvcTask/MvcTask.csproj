@@ -118,7 +118,6 @@
     <Compile Include="Helper\InputHelper.cs" />
     <Compile Include="Helper\MvcBlock.cs" />
     <Compile Include="Helper\RenderHelper.cs" />
-    <Compile Include="Models\Article.cs" />
     <Compile Include="Models\FormMethods.cs" />
     <Compile Include="Models\PreviewArticle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

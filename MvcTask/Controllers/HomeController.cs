@@ -24,7 +24,7 @@ namespace MvcTask.Controllers
 
         public ActionResult Article(long id)
         {
-            return View(new Article(repo.FindById(id)));
+            return View(repo.FindById(id));
         }
 
     }

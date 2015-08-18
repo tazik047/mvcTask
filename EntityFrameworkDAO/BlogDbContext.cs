@@ -20,7 +20,6 @@ namespace EntityFrameworkDAO
         public DbSet<Form> Forms { get; set; }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Tag> Tags { get; set; }
-        public DbSet<Taxonomy> Taxonomies { get; set; }
         public DbSet<Voite> Voites { get; set; }
     }
 }

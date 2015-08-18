@@ -370,6 +370,7 @@ a.continue {
 .post_box {
     clear: both;
     margin-bottom: 40px;
+    padding-left: 15px;
 }
 
     .post_box h2 {
@@ -415,6 +416,7 @@ a.continue {
         color: #fff;
         font-family: Georgia, "Times New Roman", Times, serif;
         background: url(../images/templatemo_sidebar_title.jpg) no-repeat;
+        margin-left: -15px;
     }
 
 #aboutus {

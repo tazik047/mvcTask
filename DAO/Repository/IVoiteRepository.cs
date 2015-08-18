@@ -9,6 +9,6 @@ namespace DAO.Repository
 {
     public interface IVoiteRepository : IRepository<Voite>
     {
-        long Summary();
+        double Summary();
     }
 }

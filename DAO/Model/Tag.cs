@@ -10,6 +10,6 @@ namespace DAO.Model
     {
         public long TagId { get; set; }
         public string Title { get; set; }
-        public virtual ICollection<Taxonomy> Taxonomies { get; set; }
+        public virtual ICollection<Article> Articles { get; set; }
     }
 }
