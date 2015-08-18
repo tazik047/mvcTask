@@ -2,14 +2,16 @@
 
 <div class="post_box">
 
-    <h2>@Html.ActionLink(Model.Title, "Article", new { id = Model.ArticleId})</h2>
+    <h2>
+        @Html.ActionLink(Model.Title, "Article", new { id = Model.ArticleId })
+    </h2>
     <div class="news_meta">Создано @Model.Date.ToLongDateString() @Model.Date.ToShortTimeString() </div>
     <!--<div class="image_wrapper"><a href="" target="_parent"><img alt="image 1" /></a></div>-->
     <p align="justify">@Model.Text</p>
     @using (Html.BeginForm("Article", "Home"))
     {
-        @Html.Hidden("id",Model.ArticleId)
-        <input type="submit" value="Подброднее" />
+        @Html.Hidden("id", Model.ArticleId)
+        <input type="submit" value="Подброднее" class="continue" />
     }
     <div class="cleaner"></div>
 </div>

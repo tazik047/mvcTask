@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,38 +21,40 @@ namespace EntityFrameworkDAO.Repository
 
         public void Add(Voite item)
         {
-            _db.Entry(item).State = System.Data.EntityState.Added;
+            _db.Entry(item).State = EntityState.Added;
             _db.SaveChanges();
         }
 
         public void Edit(Voite item)
         {
-            throw new NotImplementedException();
+            _db.Entry(item).State = EntityState.Modified;
+            _db.SaveChanges();
         }
 
-        public void Delete(int id)
+        public void Delete(long id)
         {
-            throw new NotImplementedException();
+            _db.Voites.Remove(FindById(id));
+            _db.SaveChanges();
         }
 
         public List<Voite> GetAll()
         {
-            return _db.Voites.ToList<Voite>();
+            return _db.Voites.ToList();
         }
 
         public List<Voite> GetFirtNItem(int n)
         {
-            throw new NotImplementedException();
+            return GetAll().Take(n).ToList();
         }
 
         public Voite FindById(long id)
         {
-            throw new NotImplementedException();
+            return _db.Voites.Find(id);
         }
 
         public List<Voite> Find(Func<Voite, bool> predicate)
         {
-            throw new NotImplementedException();
+            return GetAll().Where(predicate).ToList();
         }
     }
 }

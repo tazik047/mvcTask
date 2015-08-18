@@ -23,7 +23,7 @@ namespace EntityFrameworkDAO.Repository
             _db.SaveChanges();
         }
 
-        public void Delete(int id)
+        public void Delete(long id)
         {
             _db.Articles.Remove(FindById(id));
             _db.SaveChanges();

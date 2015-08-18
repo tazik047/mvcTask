@@ -7,7 +7,7 @@ namespace DAO.Repository
     {
         void Add(T item);
         void Edit(T item);
-        void Delete(int id);
+        void Delete(long id);
         
         List<T> GetAll();
         List<T> GetFirtNItem(int n);
