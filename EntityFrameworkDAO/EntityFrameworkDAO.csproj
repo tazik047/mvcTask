@@ -50,6 +50,7 @@
     <Compile Include="Repository\EntityFrameworkArticleRepository.cs" />
     <Compile Include="Repository\EntityFrameworkFormRepository.cs" />
     <Compile Include="Repository\EntityFrameworkReviewRepository.cs" />
+    <Compile Include="Repository\EntityFrameworkTagRepository.cs" />
     <Compile Include="Repository\EntityFrameworkVoiteRepository.cs" />
   </ItemGroup>
   <ItemGroup>

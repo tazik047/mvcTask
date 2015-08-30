@@ -1,0 +1,23 @@
+﻿@model DAO.Model.Tag
+
+@{
+    ViewBag.Title = "Details";
+}
+
+@section body{
+
+    <fieldset>
+        <legend>Tag</legend>
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.Title)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Title)
+        </div>
+    </fieldset>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.TagId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

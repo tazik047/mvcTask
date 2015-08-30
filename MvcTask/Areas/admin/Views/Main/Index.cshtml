@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Админ панель";
+}
+
+@section body{
+    <h2>Добро пожаловать, админ</h2>
+    <p>Возможноые действия</p>
+    <ol>
+        <li>@Html.ActionLink("Создать статью", "Create", "Aticle")</li>
+        <li>@Html.ActionLink("Список статей статью", "Index", "Aticle")</li>
+        <li>@Html.ActionLink("Содать тег","Create", "Tag")</li>
+        <li>@Html.ActionLink("Список тегов", "Index", "Tag")</li>
+    </ol>
+}

@@ -1,0 +1,30 @@
+﻿@model DAO.Model.Article
+@using DAO.Model;
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+@section body{
+    <div class="post_box">
+        <h2>@Model.Title</h2>
+        <div class="news_meta">Создано @Model.Date.ToLongDateString() @Model.Date.ToShortTimeString() </div>
+        <!--<div class="image_wrapper"><a href="" target="_parent"><img alt="image 1" /></a></div>-->
+        <p align="justify">@Model.Text</p>
+        <hr />
+        <div><b>Теги:</b></div>
+        <div>
+            @foreach (var i in Model.Tags)
+            {
+                <span>@i.Title</span><span>,&nbsp;</span>
+            }
+        </div>
+        <div class="cleaner"></div>
+    </div>
+
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ArticleId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

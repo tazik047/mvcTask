@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace DAO.Repository
 {
-    interface ITagRepository : IRepository<Tag>
+    public interface ITagRepository : IRepository<Tag>
     {
+        void Close();
     }
 }
