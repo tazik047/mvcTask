@@ -26,9 +26,12 @@ namespace MvcTask.Areas.admin.Controllers
         //
         // GET: /admin/Aticle/Details/5
 
-        public ActionResult Details(int id)
+        public ActionResult Details(int id = 0)
         {
-            return View(repo.FindById(id));
+            var article = repo.FindById(id);
+            if (article == null)
+                return HttpNotFound();
+            return View(article);
         }
 
         //
@@ -36,7 +39,8 @@ namespace MvcTask.Areas.admin.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.Tags = repoTag.GetAll().Select(t => new SelectListItem { Text = t.Title, Value = t.TagId.ToString() });
+            TempData["Tags"] = repoTag.GetAll().Select(t => new SelectListItem { Text = t.Title, Value = t.TagId.ToString() });
+            TempData.Keep("Tags");
             return View();
         }
 
@@ -48,22 +52,24 @@ namespace MvcTask.Areas.admin.Controllers
         {
             try
             {
-                
-                /*if (ModelState.IsValid)
-                {*/
-                    repo.Add(article.OriginArticle);
-                    return RedirectToAction("Index");
-                /*}
-                else
+
+                if (ModelState.IsValid)
                 {
-                    int a = 1;
-                }*/
-                
+                    var origin = article.OriginArticle;
+                    var selectedTags = repoTag.Find(t => article.Tags.Any(id => id == t.TagId));
+                    //repoTag.Close();
+                    origin.Tags = selectedTags;
+                    /*foreach (var t in selectedTags)
+                        origin.Tags.Add(new DAO.Model.Tag { TagId = t.TagId, Title = t.Title });*/
+                    repo.Add(origin);
+                    return RedirectToAction("Index");
+                }
             }
             catch
             {
-                
+
             }
+            TempData.Keep("Tags");
             return View(article);
         }
 
@@ -72,8 +78,8 @@ namespace MvcTask.Areas.admin.Controllers
 
         public ActionResult Edit(int id)
         {
-            ViewBag.AllTags = repoTag.GetAll();
-            repoTag.Close();            
+            TempData["AllTags"] = repoTag.GetAll();
+            TempData.Keep("AllTags");
             return View(new Article(repo.FindById(id)));
         }
 
@@ -89,10 +95,11 @@ namespace MvcTask.Areas.admin.Controllers
                 {
                     var origin = article.OriginArticle;
                     var selectedTags = repoTag.Find(t => article.Tags.Any(id => id == t.TagId));
-                    repoTag.Close();
+                    origin.Tags = selectedTags;
+                   /* repoTag.Close();
                     origin.Tags.Clear();
                     foreach (var t in selectedTags)
-                        origin.Tags.Add(t);
+                        origin.Tags.Add(new DAO.Model.Tag { TagId = t.TagId, Title = t.Title });*/
                     repo.Edit(origin);
                     return RedirectToAction("Index");
                 }
@@ -100,12 +107,13 @@ namespace MvcTask.Areas.admin.Controllers
                 {
                     int a = 1;
                 }
-                
+
             }
             catch
             {
-                
+
             }
+            TempData.Keep("AllTags");
             return View(article);
         }
 

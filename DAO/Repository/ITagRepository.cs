@@ -9,6 +9,5 @@ namespace DAO.Repository
 {
     public interface ITagRepository : IRepository<Tag>
     {
-        void Close();
     }
 }

@@ -9,7 +9,7 @@ namespace EntityFrameworkDAO.Repository
 {
     public class EntityFrameworkArticleRepository : IArticleRepositry
     {
-        private readonly BlogDbContext _db = new BlogDbContext();
+        private readonly BlogDbContext _db = BlogDbContext.Instance;
 
         public void Add(Article item)
         {
@@ -19,7 +19,13 @@ namespace EntityFrameworkDAO.Repository
 
         public void Edit(Article item)
         {
-            _db.Entry(item).State = EntityState.Modified;
+            var old = FindById(item.ArticleId);
+            old.Title = item.Title;
+            old.Date = item.Date;
+            old.Tags.Clear();
+            foreach (var tag in item.Tags)
+                old.Tags.Add(tag);
+            old.Text = item.Text;
             _db.SaveChanges();
         }
 

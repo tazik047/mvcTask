@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,8 @@ namespace EntityFrameworkDAO
 {
     class BlogDbContext : DbContext
     {
+        private static readonly  BlogDbContext instance = new BlogDbContext();
+
         public BlogDbContext()
             : base("BlogDbContext")
         {
@@ -21,5 +24,10 @@ namespace EntityFrameworkDAO
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<Voite> Voites { get; set; }
+
+        public static BlogDbContext Instance
+        {
+            get { return instance; }
+        }
     }
 }

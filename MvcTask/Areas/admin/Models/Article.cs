@@ -9,8 +9,6 @@ namespace MvcTask.Areas.admin.Models
 {
     public class Article
     {
-        private List<DAO.Model.Tag> tags;
-
         public DAO.Model.Article OriginArticle
         {
             get

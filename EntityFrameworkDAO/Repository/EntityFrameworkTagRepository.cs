@@ -11,7 +11,7 @@ namespace EntityFrameworkDAO.Repository
 {
     public class EntityFrameworkTagRepository : ITagRepository
     {
-        private readonly BlogDbContext _db = new BlogDbContext();
+        private readonly BlogDbContext _db = BlogDbContext.Instance;
 
         public void Add(Tag item)
         {
@@ -49,11 +49,6 @@ namespace EntityFrameworkDAO.Repository
         public List<Tag> Find(Func<Tag, bool> predicate)
         {
             return GetAll().Where(predicate).ToList();
-        }
-
-        public void Close()
-        {
-            _db.Dispose();
         }
     }
 }

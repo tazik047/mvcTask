@@ -1,4 +1,5 @@
-﻿@model MvcTask.Areas.admin.Models.Article
+﻿@using System.Collections.Generic
+@model MvcTask.Areas.admin.Models.Article
 
 @{
     ViewBag.Title = "Создании статьи";
@@ -41,7 +42,7 @@
                 @Html.LabelFor(model => model.Tags)
             </div>
             <div class="editor-field">
-                @Html.ListBox("Tags",(IEnumerable<SelectListItem>)ViewBag.Tags)
+                @Html.ListBoxFor(model => model.Tags, (IEnumerable<SelectListItem>)ViewBag.Tags)
                 @Html.ValidationMessageFor(model => model.Tags)
             </div>
 
