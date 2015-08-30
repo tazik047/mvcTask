@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MvcTask.Models.PreviewArticle>
+﻿@model System.Collections.Generic.IEnumerable<MvcTask.Models.PreviewArticle>
 
 @{
     ViewBag.Title = "Статьи";
@@ -7,7 +7,7 @@
 @section body{
 
     <p>
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("Создать новую статью", "Create")
     </p>
     <table>
         <tr>

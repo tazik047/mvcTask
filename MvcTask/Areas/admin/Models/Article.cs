@@ -13,36 +13,34 @@ namespace MvcTask.Areas.admin.Models
         {
             get
             {
-                var a = new DAO.Model.Article();
-                a.ArticleId = ArticleId;
-                a.Date = Date;
-                a.Title = Title;
-                a.Text = Text;
-                return a;
+                return new DAO.Model.Article
+                {
+                    ArticleId = ArticleId,
+                    Date = Date,
+                    Title = Title,
+                    Text = Text
+                };
             }
         }
 
         public long ArticleId { get; set; }
+
+        [Required]
+        [Display(Name = "Дата создания")]
+        [DataType(DataType.DateTime)]
         public DateTime Date { get; set; }
+
+        [Required]
+        [Display(Name = "Заголовок статьи")]
         public string Title { get; set; }
 
         [DataType(DataType.MultilineText)]
+        [Required]
+        [Display(Name = "Содержимое")]
         public string Text { get; set; }
-        //public List<DAO.Model.Tag> Tags { get; set; }
+
+        [Display(Name = "Теги")]
         public List<long> Tags { get; set; }
-        /*public List<SelectListItem> Tags
-        {
-            get
-            {
-                var items = tags.Select(t => new SelectListItem { Text = t.Title, Value = t.TagId.ToString() }).ToList();
-                for (int i = 0; i < items.Count; i++ )
-                {
-                    if (selectedIds.Contains(Convert.ToInt64(items[i].Value)))
-                        items[i].Selected = true;
-                }
-                return items;
-            }
-        }*/
 
         public Article()
         {
@@ -55,12 +53,7 @@ namespace MvcTask.Areas.admin.Models
             Date = article.Date;
             Title = article.Title;
             Text = article.Text;
-            Tags = article.Tags.Select(t=>t.TagId).ToList();//.Select(t => new SelectListItem { Text = t.Title, Value = t.TagId.ToString(), Selected = true }).ToList();
-            //selectedIds = article.Tags.Select(t => t.TagId).ToList();
-            /*foreach (var t in tags.Where(t=>!ids.Contains(t.TagId)))
-            {
-                Tags.Add(new SelectListItem { Text = t.Title, Value = t.TagId.ToString(), Selected = true });
-            }*/
+            Tags = article.Tags.Select(t=>t.TagId).ToList();
         }
     }
 }

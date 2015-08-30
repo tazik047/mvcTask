@@ -57,10 +57,7 @@ namespace MvcTask.Areas.admin.Controllers
                 {
                     var origin = article.OriginArticle;
                     var selectedTags = repoTag.Find(t => article.Tags.Any(id => id == t.TagId));
-                    //repoTag.Close();
                     origin.Tags = selectedTags;
-                    /*foreach (var t in selectedTags)
-                        origin.Tags.Add(new DAO.Model.Tag { TagId = t.TagId, Title = t.Title });*/
                     repo.Add(origin);
                     return RedirectToAction("Index");
                 }
@@ -96,18 +93,9 @@ namespace MvcTask.Areas.admin.Controllers
                     var origin = article.OriginArticle;
                     var selectedTags = repoTag.Find(t => article.Tags.Any(id => id == t.TagId));
                     origin.Tags = selectedTags;
-                   /* repoTag.Close();
-                    origin.Tags.Clear();
-                    foreach (var t in selectedTags)
-                        origin.Tags.Add(new DAO.Model.Tag { TagId = t.TagId, Title = t.Title });*/
                     repo.Edit(origin);
                     return RedirectToAction("Index");
                 }
-                else
-                {
-                    int a = 1;
-                }
-
             }
             catch
             {
