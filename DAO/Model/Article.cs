@@ -16,5 +16,10 @@ namespace DAO.Model
         [DataType(DataType.MultilineText)]
         public string Text { get; set; }
         public virtual ICollection<Tag> Tags { get; set; }
+
+        public Article()
+        {
+            Tags = new List<Tag>();
+        }
     }
 }

@@ -72,9 +72,9 @@ namespace MvcTask.Areas.admin.Controllers
 
         public ActionResult Edit(int id)
         {
-            var tags = repoTag.GetAll();
-            repoTag.Close();
-            return View(new Article(repo.FindById(id), tags));
+            ViewBag.AllTags = repoTag.GetAll();
+            repoTag.Close();            
+            return View(new Article(repo.FindById(id)));
         }
 
         //
@@ -87,7 +87,13 @@ namespace MvcTask.Areas.admin.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    repo.Edit(article.OriginArticle);
+                    var origin = article.OriginArticle;
+                    var selectedTags = repoTag.Find(t => article.Tags.Any(id => id == t.TagId));
+                    repoTag.Close();
+                    origin.Tags.Clear();
+                    foreach (var t in selectedTags)
+                        origin.Tags.Add(t);
+                    repo.Edit(origin);
                     return RedirectToAction("Index");
                 }
                 else

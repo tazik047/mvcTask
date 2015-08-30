@@ -9,7 +9,6 @@ namespace MvcTask.Areas.admin.Models
 {
     public class Article
     {
-        private List<long> selectedIds;
         private List<DAO.Model.Tag> tags;
 
         public DAO.Model.Article OriginArticle
@@ -21,7 +20,6 @@ namespace MvcTask.Areas.admin.Models
                 a.Date = Date;
                 a.Title = Title;
                 a.Text = Text;
-                a.Tags = GetTags();
                 return a;
             }
         }
@@ -32,47 +30,39 @@ namespace MvcTask.Areas.admin.Models
 
         [DataType(DataType.MultilineText)]
         public string Text { get; set; }
-        //public List<SelectListItem> Tags { get; set; }
-        public List<SelectListItem> Tags
+        //public List<DAO.Model.Tag> Tags { get; set; }
+        public List<long> Tags { get; set; }
+        /*public List<SelectListItem> Tags
         {
             get
             {
-                var items = tags.Select(t => new SelectListItem { Text = t.Title, Value = t.TagId.ToString() });
-                foreach (var i in items)
+                var items = tags.Select(t => new SelectListItem { Text = t.Title, Value = t.TagId.ToString() }).ToList();
+                for (int i = 0; i < items.Count; i++ )
                 {
-                    i.Selected = selectedIds.Contains(Convert.ToInt64(i.Value));
+                    if (selectedIds.Contains(Convert.ToInt64(items[i].Value)))
+                        items[i].Selected = true;
                 }
-                return items.ToList();
+                return items;
             }
-        }
+        }*/
 
         public Article()
         {
 
         }
 
-        public Article(DAO.Model.Article article, IEnumerable<DAO.Model.Tag> tags)
+        public Article(DAO.Model.Article article)
         {
             ArticleId = article.ArticleId;
             Date = article.Date;
             Title = article.Title;
             Text = article.Text;
-            this.tags = tags.ToList();
-            //Tags = article.Tags.Select(t => new SelectListItem { Text = t.Title, Value = t.TagId.ToString(), Selected = true }).ToList();
-            selectedIds = article.Tags.Select(t => t.TagId).ToList();
+            Tags = article.Tags.Select(t=>t.TagId).ToList();//.Select(t => new SelectListItem { Text = t.Title, Value = t.TagId.ToString(), Selected = true }).ToList();
+            //selectedIds = article.Tags.Select(t => t.TagId).ToList();
             /*foreach (var t in tags.Where(t=>!ids.Contains(t.TagId)))
             {
                 Tags.Add(new SelectListItem { Text = t.Title, Value = t.TagId.ToString(), Selected = true });
             }*/
         }
-
-        public ICollection<DAO.Model.Tag> GetTags()
-        {
-            return Tags.Where(t => t.Selected)
-                .Select(t => new DAO.Model.Tag { TagId = Convert.ToInt64(t.Value), Title = t.Text })
-                .ToList();
-        }
-
-
     }
 }

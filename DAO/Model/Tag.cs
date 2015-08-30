@@ -11,5 +11,10 @@ namespace DAO.Model
         public long TagId { get; set; }
         public string Title { get; set; }
         public virtual ICollection<Article> Articles { get; set; }
+
+        public Tag()
+        {
+            Articles = new List<Article>();
+        }
     }
 }

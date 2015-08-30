@@ -5,6 +5,7 @@
 }
 @section body{
 
+
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
@@ -42,7 +43,7 @@
                 @Html.LabelFor(model => model.Tags)
             </div>
             <div class="editor-field">
-                @Html.ListBoxFor(model => model.Tags, Model.Tags)
+                @Html.ListBoxFor(model => model.Tags, ((IEnumerable<DAO.Model.Tag>)ViewBag.AllTags).Select(t=>new SelectListItem { Value = t.TagId.ToString(), Text = t.Title}))
                 @Html.ValidationMessageFor(model => model.Tags)
             </div>
             <p>
@@ -55,10 +56,4 @@
         @Html.ActionLink("Back to List", "Index")
     </div>
 
-    <ol>
-        @foreach (var i in Model.Tags)
-        {
-            <li>@i.Text<span> - </span>@i.Value<span> - </span>@i.Selected</li>
-        }
-    </ol>
 }
