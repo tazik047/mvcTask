@@ -1,4 +1,4 @@
-﻿using DAO.Model;
+﻿//using DAO.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +12,11 @@ namespace MvcTask.Models
         public DateTime Date { get; set; }
         public string Title { get; set; }
         public string Text { get; set; }
+
+        public PreviewArticle()
+        {
+            
+        }
 
         public PreviewArticle(DAO.Model.Article article)
         {

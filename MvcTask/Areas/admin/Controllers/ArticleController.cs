@@ -3,28 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using AutoMapper;
 using DAO.Repository;
 using EntityFrameworkDAO.Repository;
 //using DAO.Model;
 using MvcTask.Models;
 using MvcTask.Areas.admin.Models;
+using MvcTask.SetupMapper;
 
 namespace MvcTask.Areas.admin.Controllers
 {
-    public class AticleController : Controller
+    public class ArticleController : Controller
     {
         //
-        // GET: /admin/Aticle/
+        // GET: /admin/Article/
         IArticleRepositry repo = new EntityFrameworkArticleRepository();
         ITagRepository repoTag = new EntityFrameworkTagRepository();
 
         public ActionResult Index()
         {
-            return View(repo.GetAll().Select(a => new PreviewArticle(a)));
+            ArticleMapper.MapForPreview(200);
+            return View(repo.GetAll().Select(Mapper.Map<DAO.Model.Article, PreviewArticle>));
         }
 
         //
-        // GET: /admin/Aticle/Details/5
+        // GET: /admin/Article/Details/5
 
         public ActionResult Details(int id = 0)
         {
@@ -35,7 +38,7 @@ namespace MvcTask.Areas.admin.Controllers
         }
 
         //
-        // GET: /admin/Aticle/Create
+        // GET: /admin/Article/Create
 
         public ActionResult Create()
         {
@@ -45,7 +48,7 @@ namespace MvcTask.Areas.admin.Controllers
         }
 
         //
-        // POST: /admin/Aticle/Create
+        // POST: /admin/Article/Create
 
         [HttpPost]
         public ActionResult Create(Article article)
@@ -71,17 +74,18 @@ namespace MvcTask.Areas.admin.Controllers
         }
 
         //
-        // GET: /admin/Aticle/Edit/5
+        // GET: /admin/Article/Edit/5
 
         public ActionResult Edit(int id)
         {
             TempData["AllTags"] = repoTag.GetAll();
             TempData.Keep("AllTags");
-            return View(new Article(repo.FindById(id)));
+            ArticleMapper.MapForEditing();
+            return View(Mapper.Map<DAO.Model.Article, Article>(repo.FindById(id)));
         }
 
         //
-        // POST: /admin/Aticle/Edit/5
+        // POST: /admin/Article/Edit/5
 
         [HttpPost]
         public ActionResult Edit(Article article)
@@ -106,7 +110,7 @@ namespace MvcTask.Areas.admin.Controllers
         }
 
         //
-        // GET: /admin/Aticle/Delete/5
+        // GET: /admin/Article/Delete/5
 
         public ActionResult Delete(int id)
         {
@@ -114,7 +118,7 @@ namespace MvcTask.Areas.admin.Controllers
         }
 
         //
-        // POST: /admin/Aticle/Delete/5
+        // POST: /admin/Article/Delete/5
 
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)

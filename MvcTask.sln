@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAO", "DAO\DAO.csproj", "{4
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkDAO", "EntityFrameworkDAO\EntityFrameworkDAO.csproj", "{49A2CF3E-A03E-47AA-9E01-8A5F3B35B18C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BBL", "BBL\BBL.csproj", "{36D2C894-0FA2-4F70-AECD-EDE5AE90257C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{49A2CF3E-A03E-47AA-9E01-8A5F3B35B18C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49A2CF3E-A03E-47AA-9E01-8A5F3B35B18C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49A2CF3E-A03E-47AA-9E01-8A5F3B35B18C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36D2C894-0FA2-4F70-AECD-EDE5AE90257C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36D2C894-0FA2-4F70-AECD-EDE5AE90257C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36D2C894-0FA2-4F70-AECD-EDE5AE90257C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36D2C894-0FA2-4F70-AECD-EDE5AE90257C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

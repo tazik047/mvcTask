@@ -4,8 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using AutoMapper;
 using DAO.Repository;
 using EntityFrameworkDAO.Repository;
+using DAO.Model;
+using MvcTask.SetupMapper;
 
 namespace MvcTask.Controllers
 {
@@ -19,7 +22,8 @@ namespace MvcTask.Controllers
         public ActionResult Index()
         {
             var list = repo.GetAll();
-            return View(list.Select(a=>new PreviewArticle(a)));
+            ArticleMapper.MapForPreview(200);
+            return View(list.Select(Mapper.Map<Article, PreviewArticle>));
         }
 
         public ActionResult Article(long id)
