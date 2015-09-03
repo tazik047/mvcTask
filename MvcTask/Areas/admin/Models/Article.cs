@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
 
 namespace MvcTask.Areas.admin.Models
 {
@@ -41,19 +38,5 @@ namespace MvcTask.Areas.admin.Models
 
         [Display(Name = "Теги")]
         public List<long> Tags { get; set; }
-
-        public Article()
-        {
-
-        }
-
-        public Article(DAO.Model.Article article)
-        {
-            ArticleId = article.ArticleId;
-            Date = article.Date;
-            Title = article.Title;
-            Text = article.Text;
-            Tags = article.Tags.Select(t=>t.TagId).ToList();
-        }
     }
 }

@@ -17,6 +17,7 @@ namespace MvcTask.Controllers
             return PartialView();
         }
 
+        [OutputCache(Duration = 60000)]
         public ActionResult Summary()
         {
             ViewBag.Summary = repo.Summary();
@@ -28,7 +29,6 @@ namespace MvcTask.Controllers
 
         public ActionResult Voite(Voite v)
         {
-            //var v = new Voite{Ip = HttpContext.Request.UserHostAddress, Mark = mark};
             repo.Add(v);
             return RedirectToAction("Index", "Home");
         }

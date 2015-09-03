@@ -1,0 +1,19 @@
+﻿<div id="register_box">
+    @if (Request.IsAuthenticated)
+    {
+        <text>
+            Здравствуйте, @User.Identity.Name!
+            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+            {
+                @Html.AntiForgeryToken()
+                <a href="javascript:document.getElementById('logoutForm').submit()">Выйти</a>
+            }
+        </text>
+    }
+    else
+    {
+        <span>Уже зарегистрирован?</span> @Html.ActionLink("Войди", "Login", new { Controller = "Account" }, new { @class = "signup" }) <span>|</span>
+        @Html.ActionLink("Зарегистрируйся", "Register", new { Controller = "Account" }, new { @class = "new_reg" });
+
+    }
+</div>

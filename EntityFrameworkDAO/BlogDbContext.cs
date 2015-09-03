@@ -24,6 +24,7 @@ namespace EntityFrameworkDAO
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<Voite> Voites { get; set; }
+        public DbSet<User> Users { get; set; } 
 
         public static BlogDbContext Instance
         {

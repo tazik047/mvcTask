@@ -338,11 +338,22 @@ input.continue {
 
 #register_box {
     float: right;
-    width: 250px;
+    width: 270px;
     color: #fff;
     font-size: 11px;
     padding-top: 10px;
 }
+
+    #register_box form {
+        display: inline-block;
+        margin-left: 10px;
+        width: 100px;
+    }
+
+        #register_box form a {
+            color: red;
+            text-decoration: none;
+        }
 
     #register_box .signup {
         color: #F00;

@@ -18,8 +18,7 @@ namespace MvcTask.Controllers
 
         public ActionResult Index()
         {
-            var list = repo.GetFirtNItem(5);
-            ViewBag.Reviews = list;
+            ViewBag.Reviews = repo.GetFirtNItem(5);
             return View();
         }
 

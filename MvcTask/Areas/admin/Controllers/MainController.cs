@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace MvcTask.Areas.admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class MainController : Controller
     {
         //

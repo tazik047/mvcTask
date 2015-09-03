@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AutoMapper;
+using BBL;
 using DAO.Repository;
 using EntityFrameworkDAO.Repository;
 //using DAO.Model;
@@ -13,6 +14,7 @@ using MvcTask.SetupMapper;
 
 namespace MvcTask.Areas.admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ArticleController : Controller
     {
         //
@@ -59,8 +61,7 @@ namespace MvcTask.Areas.admin.Controllers
                 if (ModelState.IsValid)
                 {
                     var origin = article.OriginArticle;
-                    var selectedTags = repoTag.Find(t => article.Tags.Any(id => id == t.TagId));
-                    origin.Tags = selectedTags;
+                    origin.Tags = TagWorker.FindTagsById(repoTag, article.Tags);
                     repo.Add(origin);
                     return RedirectToAction("Index");
                 }
@@ -95,8 +96,7 @@ namespace MvcTask.Areas.admin.Controllers
                 if (ModelState.IsValid)
                 {
                     var origin = article.OriginArticle;
-                    var selectedTags = repoTag.Find(t => article.Tags.Any(id => id == t.TagId));
-                    origin.Tags = selectedTags;
+                    origin.Tags = TagWorker.FindTagsById(repoTag, article.Tags);
                     repo.Edit(origin);
                     return RedirectToAction("Index");
                 }

@@ -9,6 +9,7 @@ using DAO.Model;
 
 namespace MvcTask.Areas.admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class TagController : Controller
     {
         //
