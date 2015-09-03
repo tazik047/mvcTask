@@ -1,6 +1,6 @@
 ﻿@using MvcTask.Helper;
 @Html.UlList(new List<MvcHtmlString> {
-    Html.ActionLink("Главная","Index","Home"),
-    Html.ActionLink("Гостевая","Index","Guest"),
-    Html.ActionLink("Анкета","Index","Form")},
+    Html.ActionLink("Главная","Index", new{area = "", controller = "Home"}),
+    Html.ActionLink("Гостевая","Index", new{area = "", controller = "Guest"}),
+    Html.ActionLink("Анкета","Index", new{area = "", controller = "Form"})},
     "menu")

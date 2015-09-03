@@ -3,7 +3,7 @@
     {
         <text>
             Здравствуйте, @User.Identity.Name!
-            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+            @using (Html.BeginForm("LogOff", "Account",new{area=""}, FormMethod.Post, new { id = "logoutForm" }))
             {
                 @Html.AntiForgeryToken()
                 <a href="javascript:document.getElementById('logoutForm').submit()">Выйти</a>
@@ -12,8 +12,8 @@
     }
     else
     {
-        <span>Уже зарегистрирован?</span> @Html.ActionLink("Войди", "Login", new { Controller = "Account" }, new { @class = "signup" }) <span>|</span>
-        @Html.ActionLink("Зарегистрируйся", "Register", new { Controller = "Account" }, new { @class = "new_reg" });
+        <span>Уже зарегистрирован?</span> @Html.ActionLink("Войди", "Login", new { Controller = "Account", area = "" }, new { @class = "signup" }) <span>|</span>
+        @Html.ActionLink("Зарегистрируйся", "Register", new { Controller = "Account", area = "" }, new { @class = "new_reg" });
 
     }
 </div>
